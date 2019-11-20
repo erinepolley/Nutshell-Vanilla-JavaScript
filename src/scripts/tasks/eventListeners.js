@@ -42,48 +42,47 @@ export default {
                 console.log(taskToCheck)
                 // let dateInput = document.querySelector("#date").value
                 // let taskInput = document.querySelector("#text").value
-                // let booleanFactoryFunction
                 API.taskToEdit(taskToCheck)
                     .then(task => {
 
-                        const booleanFactoryFunction = {
-                                user_id: 1,
-                                date: task.date,
-                                task: task.task,
-                                complete: true
-                            }
-                            console.log(booleanFactoryFunction)
-                        
-                            API.taskToPut(taskToCheck, booleanFactoryFunction)
-                            location.reload()
-                            // factoryFunctionMaker.booleanFactoryFunction(task)
-                        })
+                        let booleanFactoryFunction = factoryFunctionMaker.booleanFactoryFunction(task)
+                        // const booleanFactoryFunction = {
+                        //         user_id: 1,
+                        //         date: task.date,
+                        //         task: task.task,
+                        //         complete: true
+                        //     }
+                        console.log(booleanFactoryFunction)
+
+                        API.taskToPut(taskToCheck, booleanFactoryFunction)
+                        location.reload()
+                    })
                 // console.log(dateInput)
                 // let booleanFactoryFunction = factoryFunctionMaker.booleanFactoryFunction(taskInput, dateInput)
-                
+
                 // let checkbox = document.querySelector("#")
                 // if (checkbox.checked === true) {
             }
         })
-},
-//Listens for user to click the "Delete" button and deletes that particular task.
-taskDeleteEditButtonEventListener() {
-    const taskDeleteSection = document.querySelector("#tasks-rendered")
-    // console.log("TASK DELETE", taskDeleteSection)
-    taskDeleteSection.addEventListener("click", event => {
-        if (event.target.id.startsWith("deleteTask--")) {
-            const taskToDelete = event.target.id.split("--")[1]
-            console.log("TASK TO DELETE", taskToDelete)
-            API.deleteTaskData(taskToDelete)
-            location.reload()
-        } else if (event.target.id.startsWith("editTask--")) {
-            const taskToEdit =
-                event.target.id.split("--")[1]
-            console.log("TASK TO EDIT ", taskToEdit)
-            taskDomRenderers.taskEditEntryToForm(taskToEdit)
-        }
-    })
-}
+    },
+    //Listens for user to click the "Delete" button and deletes that particular task.
+    taskDeleteEditButtonEventListener() {
+        const taskDeleteSection = document.querySelector("#tasks-rendered")
+        // console.log("TASK DELETE", taskDeleteSection)
+        taskDeleteSection.addEventListener("click", event => {
+            if (event.target.id.startsWith("deleteTask--")) {
+                const taskToDelete = event.target.id.split("--")[1]
+                console.log("TASK TO DELETE", taskToDelete)
+                API.deleteTaskData(taskToDelete)
+                location.reload()
+            } else if (event.target.id.startsWith("editTask--")) {
+                const taskToEdit =
+                    event.target.id.split("--")[1]
+                console.log("TASK TO EDIT ", taskToEdit)
+                taskDomRenderers.taskEditEntryToForm(taskToEdit)
+            }
+        })
+    }
 }
 //Didn't get to session storage.
 //    let sessionId = document.getElementbyId("submit")
