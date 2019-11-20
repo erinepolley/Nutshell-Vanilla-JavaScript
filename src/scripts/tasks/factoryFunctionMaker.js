@@ -1,4 +1,5 @@
 export default {
+    //This is the factory function for posting the form info to JSON.
     tasksFactoryFunction(task, date) {
         return {
             user_id: 1,
@@ -8,12 +9,12 @@ export default {
         }
     },
 
-
-    booleanFactoryFunction(taskInput, dateInput) {
+    //This function changes "complete" to the Boolean true.
+    booleanFactoryFunction(task) {
         return {
             user_id: 1,
-            date: dateInput,
-            task: taskInput,
+            date: task.date,
+            task: task.task,
             complete: true
         }
     }

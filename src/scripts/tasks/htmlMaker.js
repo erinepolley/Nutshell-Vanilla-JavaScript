@@ -1,6 +1,7 @@
 
 
 export default {
+    //This method is the task form and gets rendered upon page load.
     taskHtmlFormMaker () {
         return `
 <form id="messages-Form">
@@ -19,11 +20,11 @@ export default {
 <input type="submit" name="submit" id="submit">
     `
     },
-
+//This method puts each task in a proper form for the DOM and is rendered upon page load.
     taskListRenderer (taskObj) {
         return `
 <article id="tasks--${taskObj.id}">
-<input type="checkbox" id=checkbox--${taskObj.id}" name="checkbox"><span>Done!</span> 
+<input type="checkbox" class="checkbox" id="checkbox--${taskObj.id}" name="checkbox"><span>Done!</span> 
     <p>Task: ${taskObj.task}</p>
     <p>To be completed by: ${taskObj.date}</p>
     <button id="editTask--${taskObj.id}" name="edit">Edit</button>

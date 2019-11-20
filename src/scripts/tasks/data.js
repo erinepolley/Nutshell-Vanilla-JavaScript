@@ -40,6 +40,7 @@ const API = {
         .then(response => response.json())
     },
 
+    //Didn't get this to work.
     // taskPatch(taskObj) {
     //     return fetch (`${baseUrl}/${hiddenId}`)
     // }
