@@ -1,4 +1,5 @@
 # Nutshell: The Information Dashboard
+Nutshell is a collection of all the user's most important information in one place. The user has the ability to see friends, messages, a to-do list, favorite news articles, and events. There is also a news feed displaying the activity of all the user's friends. Instructions for the project are below. 
 
 ## Setup: Follow these steps exactly
 
